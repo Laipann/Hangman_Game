@@ -82,10 +82,15 @@ body {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
+    margin: auto;
 }
 
 .dashes {
     margin: 5px;
 }
 
+
+.conCanvas{
+    display: flex;
+}
 

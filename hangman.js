@@ -80,15 +80,10 @@ function pilihKategori() {
         kategori.appendChild(btn)
     })
 }
-
-
-
 let chosenWord = ''
 let winCount = 0
 let loseCount = 0
 let iniKategori = ''
-
-
 
 function getId(char) {
     iniKategori = char
@@ -96,9 +91,9 @@ function getId(char) {
     document.querySelector('.container').style.display = 'block'
     quess()
 }
-
-
 function quess() {
+    getCanvas()
+
     const g = Math.floor(Math.random() * opsi[iniKategori].length)
     const t = opsi[iniKategori][g]
     const z = t.split("")
@@ -130,15 +125,80 @@ function quess() {
        
             } else {
                 loseCount++
-                if(loseCount === 5){
-                    alert('lu kalah')
+                if (loseCount == 1){head()}
+                if (loseCount == 2){body()}
+                if (loseCount == 3){rigthHand()}
+                if (loseCount == 4){leftHand()}
+                if (loseCount == 5){rigthLeg()}
+                if (loseCount == 6){leftLeg()
                     blocker()
                 }
+
             }
         })
     })
 
 }
+
+const canvas = document.getElementById('myCanvas')
+const c = canvas.getContext('2d')
+
+function getCanvas() {
+
+    c.beginPath()
+
+    c.moveTo(20,160)
+    c.lineTo(20,130)
+    c.lineTo(150,130)
+    c.lineTo(150,160)
+    c.moveTo(65,130)
+    c.lineTo(65,40)
+    c.lineTo(110,40)
+    c.lineTo(110,60)
+    c.stroke()
+
+}
+
+
+
+function head() {
+    c.beginPath()
+    c.arc(110,70,10,0,2 * Math.PI)
+    c.stroke()
+}
+
+function body(){
+    c.beginPath() 
+    c.moveTo(110,80)
+    c.lineTo(110,105)
+    c.stroke()
+}
+
+function rigthHand(){
+    c.beginPath() 
+    c.moveTo(110,90)
+    c.lineTo(125,80)
+    c.stroke()
+}
+function leftHand(){
+    c.beginPath() 
+    c.moveTo(110,90)
+    c.lineTo(95,80)
+    c.stroke()
+}
+function rigthLeg(){
+    c.beginPath()
+    c.moveTo(110,105)
+    c.lineTo(120,115)
+    c.stroke()
+}
+function leftLeg(){
+    c.beginPath()
+    c.moveTo(110,105)
+    c.lineTo(100,115)
+    c.stroke()
+}
+
 
 
 pilihKategori()
